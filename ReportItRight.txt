@@ -1,0 +1,6 @@
+ReportItRight/
+├── api/
+│   └── submit.js          <-- backend function (Vercel function)
+├── public/
+│   └── index.html         <-- frontend
+├── vercel.json            <-- Vercel configuration

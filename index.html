@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Report It Right</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    input, select, textarea { width: 100%; margin: 10px 0; padding: 8px; }
+    button { padding: 10px 20px; }
+  </style>
+</head>
+<body>
+  <h1>📢 Report It Right</h1>
+  <p>Your report is anonymous. Help make your community better.</p>
+  <form id="reportForm" enctype="multipart/form-data">
+    <label>Issue Type:</label>
+    <select name="issueType">
+      <option>Corruption</option>
+      <option>Harassment</option>
+      <option>Illegal Activity</option>
+      <option>Other</option>
+    </select>
+
+    <label>Description:</label>
+    <textarea name="description" rows="4" placeholder="Describe the issue..."></textarea>
+
+    <label>Upload Evidence (optional):</label>
+    <input type="file" name="evidence">
+
+    <label>Location (optional):</label>
+    <input type="text" name="location" placeholder="Enter location or leave blank">
+
+    <button type="submit">Submit Report</button>
+  </form>
+
+  <p id="statusMessage"></p>
+
+  <script>
+    const form = document.getElementById('reportForm');
+    const status = document.getElementById('statusMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const res = await fetch('/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await res.text();
+      status.textContent = result;
+      form.reset();
+    });
+  </script>
+</body>
+</html>
