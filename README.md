@@ -1,0 +1,1 @@
+People often witness civic issues like corruption, harassment, or illegal activities but hesitate to report them due to fear, lack of anonymity, or complicated systems. We want to build a simple, anonymous reporting app to encourage citizen participation and improve local accountability.
